@@ -1,0 +1,44 @@
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+   
+   
+    <a class="navbar-brand" href="/">Home</a>
+  
+    
+    <ul class="navbar-nav ">
+        
+      
+      <li class="nav-item">
+          <a class="nav-link" style="cursor:pointer"
+            *ngIf="!!_auth.loggedIn()" routerLink="/StudentsProfile">Profile</a>
+        </li>
+
+           
+      <li class="nav-item">
+        <a class="nav-link" style="cursor:pointer"
+          *ngIf="!!_auth.loggedIn()" routerLink="/Courses">Courses</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="cursor:pointer"
+          *ngIf="!!_auth.loggedIn()" routerLink="/Special">Registered Students</a>
+      </li>
+    
+
+    
+    </ul>
+    <ul class="navbar-nav ml-auto" >
+        <a class="nav-link" style="cursor:pointer" *ngIf="_auth.loggedIn()">
+            Welcome {{_auth.loggedInUserName()}}</a>
+      
+      <li class="nav-item dropdown"  *ngIf="!_auth.loggedIn()">
+      </li>
+      
+      <li class="nav-item" float="right">
+         <a class="nav-link" style="cursor:pointer" *ngIf="_auth.loggedIn()"
+        (click)="_auth.logoutUser()" >Logout</a>
+      </li>
+    </ul>
+    
+  </nav>
+
+  

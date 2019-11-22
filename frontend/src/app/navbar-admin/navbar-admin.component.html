@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
+   
+   
+    <a class="navbar-brand" href="/">Home</a>
+  
+    
+    <ul class="navbar-nav ">
+        
+      
+      <li class="nav-item">
+          <a class="nav-link" style="cursor:pointer"
+            *ngIf="!!_auth.loggedIn()" routerLink="/AdminBody">Courses List</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" style="cursor:pointer"
+              *ngIf="!!_auth.loggedIn()" routerLink="/AddCourse">Add Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="cursor:pointer"
+              *ngIf="!!_auth.loggedIn()" routerLink="/MentorsList">Mentors List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="cursor:pointer"
+              *ngIf="!!_auth.loggedIn()" routerLink="/StudentsList">Students List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="cursor:pointer"
+                     routerLink="/Mentorslist">Ongoing Courses</a>
+          </li>
+    </ul>
+    <ul class="navbar-nav ml-auto" >
+        <a class="nav-link" style="cursor:pointer" *ngIf="_auth.loggedIn()">
+            Welcome {{_auth.loggedInUserName()}}</a>
+      
+      <li class="nav-item dropdown"  *ngIf="!_auth.loggedIn()">
+      </li>
+      
+      <li class="nav-item" float="right">
+         <a class="nav-link" style="cursor:pointer" *ngIf="_auth.loggedIn()"
+        (click)="_auth.logoutUser()" >Logout</a>
+      </li>
+    </ul>
+    
+  </nav>
+
+  

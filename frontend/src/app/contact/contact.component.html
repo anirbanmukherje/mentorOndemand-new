@@ -1,0 +1,60 @@
+<div class="container">
+
+	<h1 class="text-center">Contact us</h1><br />
+	
+	<div class="row">
+	  <div class="col-md-8">
+		  <form #userForm="ngForm">
+				<input type="text" #name="ngModel" class="form-control" [class.is-invalid]="name.invalid && name.touched" name="firstname"
+				placeholder="First Name" required="" autofocus="" ngModel/>
+			   <small class="text-danger" [class.d-none]="name.valid || name.untouched">Please enter valid firstname</small>
+				<br>	   
+			    <input type="tel" #phone="ngModel" pattern="^\d{10}$" class="form-control" 
+			   [class.is-invalid]="phone.touched && phone.invalid" name="phone" placeholder=" Enter the Phone Number" required="" autofocus="" ngModel/>
+			 <div *ngIf="phone.errors && (phone.invalid || phone.touched)">
+			   <small class="text-danger"  [class.d-none]="phone.valid ||phone.untouched" *ngIf="phone.errors.required">Phone number is required</small>
+			   <small class="text-danger"  [class.d-none]="phone.valid || phone.untouched" *ngIf="phone.errors.pattern">Please enter 10 digit Phone number</small>
+			
+			</div>
+		<br> 			
+			   <input type="email" #email="ngModel" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" class="form-control" 
+			   [class.is-invalid]="email.touched && email.invalid" name="email" placeholder="Email Address" required="" autofocus="" ngModel/>
+			 <div *ngIf="email.errors && (email.invalid || email.touched)">
+			   <small class="text-danger"  [class.d-none]="email.valid ||email.untouched" *ngIf="email.errors.required">Email is required</small>
+			   <small class="text-danger"  [class.d-none]="email.valid || email.untouched" *ngIf="email.errors.pattern">Enter valid email</small>
+			
+			</div>
+		<br> 			
+			 <textarea #text="ngModel" class="form-control" name="text" 
+			 placeholder="How can we help you?" style="height:150px;"   ngModel></textarea><br />
+
+			 <input class="btn btn-primary" type="submit" value="Send" /><br /><br />
+		  </form>
+	  </div>
+	  <div class="col-md-4">
+		<b>Customer service:</b> <br />
+		Phone: +1 129 209 291<br />
+		E-mail: <a href="mailto:support@mysite.com">support@mysite.com</a><br />
+		<br /><br />
+		<b>Headquarter:</b><br />
+		Company Inc, <br />
+		Las vegas street 201<br />
+		55001 Nevada, USA<br />
+		Phone: +1 145 000 101<br />
+		<a href="mailto:usa@mysite.com">usa@mysite.com</a><br />
+	
+	
+		<br /><br />
+		<b>Hong kong:</b><br />
+		Company HK Litd, <br />
+		25/F.168 Queen<br />
+		Wan Chai District, Hong Kong<br />
+		Phone: +852 129 209 291<br />
+		<a href="mailto:hk@mysite.com">hk@mysite.com</a><br />
+	
+	
+	  </div>
+	</div>
+	
+	</div>
+	

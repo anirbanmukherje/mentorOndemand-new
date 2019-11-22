@@ -1,0 +1,57 @@
+
+<div class="bg">
+    <div class="wrapper">
+    
+      <form #userForm="ngForm" class="form-signin">
+              
+        <h1 class="form-signin-heading">Please Sign Up</h1>
+        <input type="text" [(ngModel)]="registerUserData.FirstName" #name="ngModel" class="form-control" [class.is-invalid]="name.invalid && name.touched" name="firstname"
+         placeholder="First Name" required="" autofocus="" ngModel/>
+        <small class="text-danger" [class.d-none]="name.valid || name.untouched">Firstname required</small>
+        
+        <p></p>
+        <input type="text" [(ngModel)]="registerUserData.LastName" #name1="ngModel" class="form-control"  [class.is-invalid]="name1.invalid && name1 .touched"
+         name="lastname" placeholder="Last Name" required="" autofocus="" ngModel/>
+        <small class="text-danger" [class.d-none]="name1.valid || name1.untouched">Lastname required</small>
+        <p></p>
+    
+        <input type="Email" [(ngModel)]="registerUserData.Email" #Email="ngModel" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" class="form-control" 
+        [class.is-invalid]="Email.touched && Email.invalid" name="Email" placeholder="Email Address" required="" autofocus="" ngModel/>
+      <div *ngIf="Email.errors && (Email.invalid || Email.touched)">
+        <small class="text-danger"  [class.d-none]="Email.valid ||Email.untouched" *ngIf="Email.errors.required">Email is required</small>
+        <small class="text-danger"  [class.d-none]="Email.valid || Email.untouched" *ngIf="Email.errors.pattern">Enter valid Email</small>
+      </div>
+        <p></p>
+        <input type="text" [(ngModel)]="registerUserData.Skill" #name="ngModel" class="form-control" [class.is-invalid]="name.invalid && name.touched" name="firstname"
+         placeholder="Skill" required="" autofocus="" ngModel/>
+        <small class="text-danger" [class.d-none]="name.valid || name.untouched">Skill Required</small>
+        <p></p>
+        <input type="text" [(ngModel)]="registerUserData.Experience" #name="ngModel" class="form-control" [class.is-invalid]="name.invalid && name.touched" name="firstname"
+         placeholder="Experience" required="" autofocus="" ngModel/>
+        <small class="text-danger" [class.d-none]="name.valid || name.untouched">Experience</small>
+        <p></p>
+
+        <input type="text" [(ngModel)]="registerUserData.phoneNumber" #name="ngModel" class="form-control" [class.is-invalid]="name.invalid && name.touched" name="phoneNumber"
+         placeholder="PhoneNumber" required="" autofocus="" ngModel/>
+        <small class="text-danger" [class.d-none]="name.valid || name.untouched">PhoneNumber</small>
+        <p></p>
+        
+        
+        <input type="Password" [(ngModel)]="registerUserData.Password" #Password="ngModel"   class="form-control" name="Password" placeholder="Password" required="" ngModel
+        [class.is-invalid]="Password.touched && Password.invalid"/>
+        <small class="text-danger" [class.d-none]="Password.valid || Password.untouched">Please enter a Password</small>
+         <br>  
+         <p></p>
+         
+         
+         
+        <label class="checkbox">
+          <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+        </label>
+        <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+        <button (click)="registerMentor()" [disabled]="userForm.form.invalid" class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+        <p></p>
+        <p>Already Registered? <a routerLink="/mentorLogIn">Log In</a></p>   
+      </form>
+    </div>
+    </div>

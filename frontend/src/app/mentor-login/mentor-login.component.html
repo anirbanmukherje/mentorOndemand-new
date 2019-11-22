@@ -1,0 +1,20 @@
+
+<div class="bg">
+
+
+  <form class="form-signin">
+ 
+    <h1 class="form-signin-heading">Please Login</h1>
+    
+        <img src = "../../assets/mentor1.jpg"  height=100px width=100px border-radius=50%>
+    <br><br>
+    <input [(ngModel)]="loginUserData.Email"type="text" class="form-control" name="Email" placeholder="Email Address" required="" autofocus="" />
+    <input  [(ngModel)]="loginUserData.Password" type="Password" class="form-control" name="Password" placeholder="Password" required=""/>      
+    <label class="checkbox">
+      <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+    </label>
+    <button (click)="loginMentor()" class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+    <p></p>
+    <p>New User? <a routerLink="/mentorSignup">Register Now</a></p>   
+  </form>
+</div>

@@ -1,0 +1,32 @@
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { EventService } from '../event.service';
+
+@Component({
+  selector: 'app-edit-course',
+  templateUrl: './edit-course.component.html',
+  styleUrls: ['./edit-course.component.scss']
+})
+export class EditCourseComponent implements OnInit {
+
+  courseUpdateData:any = {}
+  constructor(private _auth: AuthService,private _eventService: EventService,
+    private _router: Router) { }
+
+  ngOnInit() {
+    this.courseUpdateData = this._eventService.getCourse()
+  }
+
+  editCourses() {
+    this._eventService.editCourses(this.courseUpdateData.id,this.courseUpdateData)
+     .subscribe(
+       res => {
+        this._router.navigate(['/AdminBody'])
+       },
+       err => console.log(err)
+     ) 
+ }
+
+
+}

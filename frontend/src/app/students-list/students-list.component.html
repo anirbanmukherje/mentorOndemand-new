@@ -1,0 +1,54 @@
+<app-navbar-admin> </app-navbar-admin>
+<div class="container">
+	<div class="row">
+        <div class="col-md-12">
+            <br>
+        <h2 class="text-center text-info">List Of Students</h2>
+        <br>
+        <div class="alert alert-info" *ngIf="errorServerMessageCourses != null">
+            <strong>Info! {{errorServerMessageCourses}}</strong> 
+          </div>
+        <div class="table-responsive">
+
+                
+              <table id="mytable" class="table table-bordred table-striped">
+                   
+                   <thead>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                     <th>Student Email</th>
+                     <th>Phone Number</th>
+                     <th>Status</th>
+                     
+                     
+                   </thead>
+    <tbody>   
+    <tr *ngFor=" let student of studentslist">
+    <td>{{student.firstname}}</td>
+    <td>{{student.lastname}}</td>
+    <td>{{student.email}}</td>
+    <td>{{student.phoneNumber}}</td>
+    <td>
+    <div *ngIf="student.active">
+      <button type="button" class="btn btn-danger badge-pill mr-2" (click)="block(student.id)"><i class="fa fa-ban"></i>Block</button>
+ </div>
+      <div *ngIf="!student.active">
+      <button type="button" class="btn btn-primary badge-pill mr-2" (click)="unBlock(student.id)"><i class="fa fa-check-circle"></i>UnBlock</button>
+   </div> 
+  </td>  
+    
+  
+    </tbody>
+        
+</table>
+
+
+                
+            </div>
+            
+        </div>
+	</div>
+</div>
+
+
+

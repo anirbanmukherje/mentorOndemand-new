@@ -1,0 +1,19 @@
+<app-navmentor></app-navmentor>
+<h2 class="text-center text-info">Courses Description</h2>
+<div class="row mt-5">
+  <div class="col-md-4 mb-3" *ngFor="let event of courses">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">Course:{{event.name}}</h5>
+        <h6 class="card-text">Trainer: {{event.mentorEmail}}</h6>
+        <h6 class="card-text">Price: {{event.courseFee}}</h6>
+        <h6 class="card-text" >Description: {{event.description}}</h6>
+        <h6 class="card-text" >Duration: {{event.duration}}</h6>
+      </div>
+      <div class="card-footer text-muted">
+        Duration: {{event.duration}}
+      </div>
+    </div>
+  </div>
+</div>
+
